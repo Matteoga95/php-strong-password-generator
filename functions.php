@@ -4,7 +4,7 @@
 
 function generate_password($lunghezza)
 {
-    var_dump($lunghezza);
+    // var_dump($lunghezza);
     if ($lunghezza > 86 or is_null($lunghezza) == true) {
         return null;
     } else {

@@ -4,6 +4,15 @@ include __DIR__ . "/functions.php";
 
 $parola = generate_password($_GET["lunghezza"]);
 
+
+var_dump($GET_["numeri"]);
+
+var_dump($GET_["lettere"]);
+
+var_dump($GET_["simboli"]);
+
+var_dump($GET_["yrepeat"]);
+var_dump($GET_["nrepeat"]);
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +62,42 @@ $parola = generate_password($_GET["lunghezza"]);
                         <h4>Lunghezza Password</h4>
                         <input type="number" name="lunghezza" class="w-25 form-control" id="lunghezza"
                             aria-describeby="lunghezzaHelper" placeholder="max 86 ">
+                    </div>
+
+                    <div class="mb-3 d-flex justify-content-between px-5">
+                        <h4>Consenti ripetizioni di uno o più caratteri:</h4>
+                        <div>
+                            <input class="form-check-input" type="radio" name="yrepeat" id="yrepeat">
+                            <label class="form-check-label" for="yrepeat">
+                                Sì
+                            </label>
+                            <input class="form-check-input" type="radio" name="nrepeat" id="nrepeat">
+                            <label class="form-check-label" for="nrepeat">
+                                No
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-end">
+
+                        <div class="form-check py-3 ">
+                            <input class="form-check-input" type="checkbox" name="lettere" value="true">
+                            <label class="form-check-label" for="lettere">
+                                Lettere
+                            </label>
+                        </div>
+                        <div class="form-check py-3 ">
+                            <input class="form-check-input" type="checkbox" name="numeri" value="true">
+                            <label class="form-check-label" for="numeri">
+                                Numeri
+                            </label>
+                        </div>
+                        <div class="form-check py-3">
+                            <input class="form-check-input" type="checkbox" name="simboli" value="true">
+                            <label class="form-check-label" for="simboli">
+                                Simboli
+                            </label>
+                        </div>
                     </div>
 
                     <button type="submit" class="p-2 px-4 btn btn-primary text-left">Invia</button>

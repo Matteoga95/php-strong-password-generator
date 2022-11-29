@@ -2,17 +2,13 @@
 
 include __DIR__ . "/functions.php";
 
-$parola = generate_password($_GET["lunghezza"]);
+// $parola = generate_password($_GET["lunghezza"]);
+
+$parola = generate_password($_GET["lunghezza"], $_GET["lettere"], $_GET["numeri"], $_GET["simboli"], $_GET["repeat"]);
 
 
-var_dump($GET_["numeri"]);
 
-var_dump($GET_["lettere"]);
-
-var_dump($GET_["simboli"]);
-
-var_dump($GET_["yrepeat"]);
-var_dump($GET_["nrepeat"]);
+var_dump($_GET["repeat"]);
 ?>
 
 <!DOCTYPE html>
@@ -61,17 +57,23 @@ var_dump($GET_["nrepeat"]);
                     <div class="mb-3 d-flex justify-content-between px-5">
                         <h4>Lunghezza Password</h4>
                         <input type="number" name="lunghezza" class="w-25 form-control" id="lunghezza"
-                            aria-describeby="lunghezzaHelper" placeholder="max 86 ">
+                            aria-describeby="lunghezzaHelper" placeholder="inserire lunghezza">
                     </div>
 
                     <div class="mb-3 d-flex justify-content-between px-5">
                         <h4>Consenti ripetizioni di uno o più caratteri:</h4>
                         <div>
-                            <input class="form-check-input" type="radio" name="yrepeat" id="yrepeat">
+
+                            <input class="form-check-input" type="radio" name="repeat" value="yes" id="repeat"
+                                <?php if (isset($_GET['repeat']) && $_GET['repeat'] == 'yes') : ?>checked='checked'
+                                <?php endif; ?>>
                             <label class="form-check-label" for="yrepeat">
                                 Sì
                             </label>
-                            <input class="form-check-input" type="radio" name="nrepeat" id="nrepeat">
+
+                            <input class="form-check-input" type="radio" name="repeat" value="no" id="repeat"
+                                <?php if (isset($_GET['repeat']) && $_GET['repeat'] == 'no') : ?>checked='checked'
+                                <?php endif; ?>>
                             <label class="form-check-label" for="nrepeat">
                                 No
                             </label>
@@ -81,19 +83,19 @@ var_dump($GET_["nrepeat"]);
                     <div class="d-flex justify-content-end">
 
                         <div class="form-check py-3 ">
-                            <input class="form-check-input" type="checkbox" name="lettere" value="true">
+                            <input class="form-check-input" type="checkbox" name="lettere">
                             <label class="form-check-label" for="lettere">
                                 Lettere
                             </label>
                         </div>
                         <div class="form-check py-3 ">
-                            <input class="form-check-input" type="checkbox" name="numeri" value="true">
+                            <input class="form-check-input" type="checkbox" name="numeri">
                             <label class="form-check-label" for="numeri">
                                 Numeri
                             </label>
                         </div>
                         <div class="form-check py-3">
-                            <input class="form-check-input" type="checkbox" name="simboli" value="true">
+                            <input class="form-check-input" type="checkbox" name="simboli">
                             <label class="form-check-label" for="simboli">
                                 Simboli
                             </label>

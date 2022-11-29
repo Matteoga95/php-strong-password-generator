@@ -1,20 +1,9 @@
 <?php
 
-
-
-function generate_password($lunghezza)
-{
-
-    if ($lunghezza > 86 && is_null($lunghezza) == false) {
-        return null;
-    } else {
-        $data = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz-_.:,;§°ç{})(/&$£^+[]';
-        return substr(str_shuffle($data), 0, $lunghezza);
-    }
-}
+include __DIR__ . "/functions.php";
 
 $parola = generate_password($_GET["lunghezza"]);
-var_dump($parola);
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +51,7 @@ var_dump($parola);
 
                     <div class="mb-3 d-flex justify-content-between px-5">
                         <h4>Lunghezza Password</h4>
-                        <input type="text" name="lunghezza" class="w-25 form-control" id="lunghezza"
+                        <input type="number" name="lunghezza" class="w-25 form-control" id="lunghezza"
                             aria-describeby="lunghezzaHelper" placeholder="max 86 ">
                     </div>
 
